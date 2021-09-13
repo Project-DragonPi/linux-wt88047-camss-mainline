@@ -30,6 +30,7 @@ dtb-$(CONFIG_ARCH_QCOM)	+= msm8916-samsung-gt58.dtb msm8916-samsung-gt58lte-mode
 dtb-$(CONFIG_ARCH_QCOM)	+= msm8916-samsung-j3ltespr.dtb
 dtb-$(CONFIG_ARCH_QCOM)	+= msm8916-samsung-j5nlte.dtb
 dtb-$(CONFIG_ARCH_QCOM)	+= msm8916-samsung-j5xlte.dtb
+dtb-$(CONFIG_ARCH_QCOM)	+= msm8916-samsung-serranovelte.dtb
 dtb-$(CONFIG_ARCH_QCOM)	+= msm8916-wingtech-wt86518.dtb msm8916-wingtech-wt86518-modem.dtb
 dtb-$(CONFIG_ARCH_QCOM)	+= msm8916-wingtech-wt86528.dtb msm8916-wingtech-wt86528-modem.dtb
 dtb-$(CONFIG_ARCH_QCOM)	+= msm8916-wingtech-wt88047.dtb msm8916-wingtech-wt88047-modem.dtb
