@@ -24,6 +24,16 @@
 * Camera Dtsi In downsteam kernel
 
   ​        [msm8916-camera-sensor-wt88047.dtsi](https://github.com/dev-elixir/hx_wt88047/blob/master/arch/arm/boot/dts/qcom/wt88047/msm8916-camera-sensor-wt88047.dtsi)
+  
+* Command to Test Camera
+
+  ``` shell
+  sudo media-ctl -d /dev/media0 -l '"msm_csiphy0":1->"msm_csid0":0[1],"msm_csid0":1->"msm_ispif0":0[1],"msm_ispif0":1->"msm_vfe0_rdi0":0[1]'
+  
+  sudo media-ctl -v -d /dev/media0 '"ov8865 4-0020":0[fmt:SBGGR10_1X10/1920x1080 field:none],"msm_csiphy0":0[fmt:SBGGR10_1X10/1920x1080 field:none],"msm_csid0":0[fmt:SBGGR10_1X10/1920x1080 field:none],"msm_ispif0":0[fmt:SBGGR10_1X10/1920x1080 field:none],"msm_vfe0_rdi0":0[fmt:SBGGR10_1X10/1920x1080 field:none]'
+  ```
+
+  
 
 # Kernel Readme
 
