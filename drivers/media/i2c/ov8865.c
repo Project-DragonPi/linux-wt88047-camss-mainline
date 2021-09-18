@@ -22,7 +22,7 @@
 
 /* Clock rate */
 
-#define OV8865_EXTCLK_RATE			24000000
+#define OV8865_EXTCLK_RATE			23880597
 
 /* Register definitions */
 
@@ -1267,6 +1267,7 @@ static const struct ov8865_register_value ov8865_init_sequence[] = {
 
 static const s64 ov8865_link_freq_menu[] = {
 	360000000,
+	358208955,
 };
 
 static const char *const ov8865_test_pattern_menu[] = {
@@ -2323,8 +2324,6 @@ static int ov8865_sensor_power(struct ov8865_sensor *sensor, bool on)
 	int ret = 0;
 
 	if (on) {
-		gpiod_set_value_cansleep(sensor->reset, 1);
-		gpiod_set_value_cansleep(sensor->powerdown, 1);
 
 		ret = regulator_enable(sensor->dovdd);
 		if (ret) {
@@ -2332,27 +2331,30 @@ static int ov8865_sensor_power(struct ov8865_sensor *sensor, bool on)
 				"failed to enable DOVDD regulator\n");
 			goto disable;
 		}
-
+		udelay(300);
 		ret = regulator_enable(sensor->avdd);
 		if (ret) {
 			dev_err(sensor->dev,
 				"failed to enable AVDD regulator\n");
 			goto disable;
 		}
-
+		udelay(300);
 		ret = regulator_enable(sensor->dvdd);
 		if (ret) {
 			dev_err(sensor->dev,
 				"failed to enable DVDD regulator\n");
 			goto disable;
 		}
-
+		udelay(300);
 		ret = clk_prepare_enable(sensor->extclk);
 		if (ret) {
 			dev_err(sensor->dev, "failed to enable EXTCLK clock\n");
 			goto disable;
 		}
-
+		
+		gpiod_set_value_cansleep(sensor->reset, 1);
+		gpiod_set_value_cansleep(sensor->powerdown, 1);
+		
 		gpiod_set_value_cansleep(sensor->reset, 0);
 		gpiod_set_value_cansleep(sensor->powerdown, 0);
 
@@ -2905,7 +2907,8 @@ static int ov8865_probe(struct i2c_client *client)
 	ret = v4l2_async_register_subdev_sensor(subdev);
 	if (ret)
 		goto error_pm;
-
+	
+	printk("OV8865 : loaded! OHH \n");
 	return 0;
 
 error_pm:
