@@ -925,6 +925,9 @@
 			#reset-cells = <1>;
 			#power-domain-cells = <1>;
 			reg = <0x01800000 0x80000>;
+			
+			assigned-clocks = <&gcc GCC_CAMSS_MCLK0_CLK>,<&gcc GCC_CAMSS_MCLK1_CLK>;
+			assigned-clock-rates = <23880000>,<23880000>;
 		};
 
 		tcsr_mutex: hwlock@1905000 {

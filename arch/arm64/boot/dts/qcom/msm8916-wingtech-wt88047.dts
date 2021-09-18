@@ -118,6 +118,56 @@
 
 };
 
+&cci {
+	status = "okay";
+};
+
+&cci_i2c0 {
+	status = "okay";	
+	ov8865@20 {
+		compatible = "ovti,ov8865";
+		reg = <0x20>;
+		pinctrl-names = "default";
+		pinctrl-0 = <&camera_rear_default>;
+
+		clocks = <&gcc GCC_CAMSS_MCLK0_CLK>;
+		status = "okay";
+
+		avdd-supply = <&pm8916_l17>;
+		dovdd-supply = <&pm8916_l6>;
+		dvdd-supply = <&pm8916_l2>;
+		
+		powerdown-gpios = <&msmgpio 33 GPIO_ACTIVE_LOW>;
+		reset-gpios = <&msmgpio 35 GPIO_ACTIVE_LOW>;
+
+		port {
+			ov8865_ep: endpoint {
+				remote-endpoint = <&csiphy0_ep>;
+				link-frequencies = /bits/ 64 <358208955>;
+				clock-noncontinuous;
+				data-lanes = <0 2 3 4>;
+				clock-lanes = <1>;
+			};
+		};
+	};
+};
+
+&camss {
+	status = "okay";
+
+	ports {
+		port@0 {
+			reg = <0>;
+			csiphy0_ep: endpoint {
+				clock_lanes = <1>;
+				data-lanes = <0 2 3 4>;
+				remote-endpoint = <&ov8865_ep>;
+				status = "okay";
+			};
+		};
+	};
+};
+
 &blsp_i2c2 {
 	status = "okay";
 
