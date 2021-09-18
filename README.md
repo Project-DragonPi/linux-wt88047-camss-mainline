@@ -7,6 +7,24 @@
 * /dev/media0 can created by qcom-camss.ko normally with no problem.
 * WIP front camera  + rear camera devicetree can find in msm8916-wingtech-wt88047-backup.dts 
 
+# note
+
+* Leaked UserSpace Driver For Android (libmmcamera) 
+
+  ​		[libmmcamera_ov8865_q8v18a.so](https://github.com/zoggn/proprietary_qcom_mm-camera/blob/master/mm-camera2/media-controller/modules/sensors/sensor_libs/ov8865_q8v18a/ov8865_q8v18a_lib.c)
+
+  ​		[libmmcamera_ov2680_skuhf.so](https://github.com/zoggn/proprietary_qcom_mm-camera/blob/master/mm-camera2/media-controller/modules/sensors/sensor_libs/ov2680_skuhf/ov2680_skuhf_lib.c)
+
+  ​		[libmmcamera_ov2680_5987fhq.so](https://github.com/zoggn/proprietary_qcom_mm-camera/blob/master/mm-camera2/media-controller/modules/sensors/sensor_libs/ov2680_5987fhq/ov2680_5987fhq_lib.c)
+
+  ​        [libmmcamera_sunny_q8v18a_eeprom.so](https://github.com/zoggn/proprietary_qcom_mm-camera/blob/master/mm-camera2/media-controller/modules/sensors/eeprom_libs/sunny_q8v18a/sunny_q8v18a_eeprom.c)
+
+  ​	
+
+* Camera Dtsi In downsteam kernel
+
+  ​        [msm8916-camera-sensor-wt88047.dtsi](https://github.com/dev-elixir/hx_wt88047/blob/master/arch/arm/boot/dts/qcom/wt88047/msm8916-camera-sensor-wt88047.dtsi)
+
 # Kernel Readme
 
 ```
