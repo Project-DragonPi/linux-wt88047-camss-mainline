@@ -1,3 +1,15 @@
+# WIP - Camss Support For Wt88047
+
+* Not Working Yet . Just For Reference.
+* FlashLight Can Work Perfectly!
+* Only Support Ov8865(rare camera).
+* i2cdetect can find ov8865 at 0x20 but return broken pipe when use it. 
+* /dev/media0 can created by qcom-camss.ko normally with no problem.
+* WIP front camera  + rear camera devicetree can find in msm8916-wingtech-wt88047-backup.dts 
+
+# Kernel Readme
+
+```
 Linux kernel
 ============
 
@@ -16,3 +28,5 @@ several of them using the Restructured Text markup notation.
 Please read the Documentation/process/changes.rst file, as it contains the
 requirements for building and running the kernel, and information about
 the problems which may result by upgrading your kernel.
+```
+
